@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//document.write("Hola mundo" + "<br/>")
+var text ='{"people":[{"name":"Andres","edad":"11"},{"name":"Sara","edad":"7"},{"name":"Saul","edad":"5"}]}';
+var obj = JSON.parse(text);
+var a = obj.people[0].edad;
+var b = obj.people[0].edad*10
+for (i=0; i<=2; i++) {document.write(obj.people[i].name + " edad:" + obj.people[i].edad*10 + "<br />"); }
+document.write(b + "<br/>")
+</script>
+</body>
+</html>
+
