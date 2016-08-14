@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="es" />
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+<div id="intro">
+<p>Conversión de Unidades de Potencia & Energía</p>
+<p>Introduzca la cantidad</p>
+</div>
+<form name="form1" id="form1" action="javascript:procesar(document.forms.form1)">
+	<input type="number" name="energia" id="energia" value="1"/>
+	<input type="text" name="unidad" id="unidad" list="unidades"/><br/>
+	<datalist id="unidades">
+		<option value="W">
+		<option value="MW">
+		<option value="GW">
+		<option value="TW">
+	</datalist>
+	 <p><input type="submit" value="convertir"></p>
+</form>
+
+<script type="text/javascript">
+function procesar(obj)
+{
+//alert(obj.energia.value);
+var MW = obj.energia.value;
+document.write("<p>La conversión a unidades equivalente es la siguiente</p>")
+document.write("<p>Sistema de unidades internacional</p>")
+document.write(MW*1000000 + " W" + "<br/>")
+document.write(MW*1000 + " kW" + "<br/>")
+document.write(MW + " MW" + "<br/>")
+document.write(MW/1000 + " GW" + "<br/>")
+document.write(MW/1000000 + " TW" + "<br/>")
+document.write("<p>Sistema de unidades inglés</p>")
+document.write(MW*1000000/756 + " hp" + "<br/>")
+document.write("<p>Energía equivalente por día (24 h)</p>")
+document.write("<p>Sistema de unidades internacional (SI)</p>")
+document.write(MW*1000000*24 + " Wh" + "<br/>")
+document.write(MW*1000*24 + " kWh" + "<br/>")
+document.write(MW*24 + " MWh" + "<br/>")
+document.write(MW/1000*24 + " GWh" + "<br/>")
+document.write(MW/1000000*24 + " TWh" + "<br/>")
+document.write("<p>Hidrocarburos necesario para producir la energía arriba indicada en una planta eléctrica termolectrica</p>")
+document.write(MW/4 + " MMPCD" + "<br/>")
+alert("Conversión realizada");
+}
+</script>
+
+
+</body>
+</html>
