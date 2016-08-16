@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script>
+
+    $(function() {
+
+
+   var conversion = [];
+
+   $.getJSON('conversion.json', function(data) {
+       $.each(data.power_quivalent, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.W / 1 + "</td>" +
+           "<td>" + f.kW/1+ "</td>" + "<td>" + f.MW/1 + "</td>" + "<td>" + f.GW/1 + "</td>" + "<td>" + f.hp/1 + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>W</th>
+            <th>kW</th>
+            <th>MW</th>
+            <th>GW</th>
+            <th>hp</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
+</body>
+</html>

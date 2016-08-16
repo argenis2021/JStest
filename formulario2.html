@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Conversor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="es" />
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+
+</head>
+<body>
+<div id="intro">
+<p>Conversión de Unidades de Potencia & Energía</p>
+<p>Introduzca la cantidad</p>
+</div>
+<form class="form1" name="form1" id="form1">
+	<input type="number" name="energia" id="energia" value="1"/>
+	<input type="text" name="unidad" id="unidad" list="unidades"/><br/>
+	<datalist id="unidades">
+		<option value="W">
+		<option value="MW">
+		<option value="GW">
+		<option value="TW">
+	</datalist>
+	 <p><input type="submit" value="convertir"></p>
+</form>
+<script>
+$('.form1').on('submit', function ()
+{
+   var xx = form1.energia.value;
+   var conversion = [];
+
+   $.getJSON('conversion.json', function(data) {
+       $.each(data.power_quivalent, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.W / 1*xx + "</td>" +
+           "<td>" + f.kW/1+ "</td>" + "<td>" + f.MW/1 + "</td>" + "<td>" + f.GW/1 + "</td>" + "<td>" + f.hp/1 + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+  });
+};
+</script>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>W</th>
+            <th>kW</th>
+            <th>MW</th>
+            <th>GW</th>
+            <th>hp</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+<script>
+$(.'my-form').on('submit', function ()
+{
+    alert('Form submitted!');
+    return false;
+});
+</script>
+
+<form class="my-form">
+    <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>
