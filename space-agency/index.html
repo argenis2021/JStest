@@ -117,6 +117,7 @@
 {
 //alert(obj.energia.value);
 var MW = obj.energia.value;
+//var HP = (MW*1000000/754).toFixed(2);
 document.getElementById("feature").getElementsByClassName("col-md-6 col-md-offset-6")[0].innerHTML=("<h2>POTENCIA EQUIVALENTE</h2>"
 +"<p>Sistema de unidades internacional</p>"
 +MW*1000000 + " W" + "<br/>"
@@ -125,7 +126,7 @@ document.getElementById("feature").getElementsByClassName("col-md-6 col-md-offse
 +MW/1000 + " GW" + "<br/>"
 +MW/1000000 + " TW" + "<br/>"
 +"<p>Sistema de unidades inglés</p>"
-+MW*1000000/754 + " hp" + "<br/>")
++(MW*1000000/754).toFixed(4) + " hp" + "<br/>")
 document.getElementById("service").innerHTML=("<h2>ENERGÍA EQUIVALENTE POR 24 h</h2>"
 +"<p>Sistema de unidades internacional (SI)</p>"
 +MW*1000000*24 + " Wh" + "<br/>"
