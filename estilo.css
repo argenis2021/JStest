@@ -4,7 +4,7 @@
 }
 
 #intro {
-	color:black;
+	color:white;
 	background-color: blue;
 }
 #form1 {
@@ -13,9 +13,21 @@
 }
 body{
 	color:white;
-	background-color: gray;
+	background-color: black;
 }
 #script1{
 	color: black;
 	background-color: blue;
+}
+#power {
+	color:red;
+	background-color: white;
+}
+#energy {
+	color:red;
+	background-color: #202020;
+}
+#energy2 {
+	color:red;
+	background-color: #00CCCC;
 }

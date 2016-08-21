@@ -22,31 +22,33 @@
 	</datalist>
 	 <p><input type="submit" value="convertir"></p>
 </form>
-
+<div id = "power"></div>
+<div id = "energy"></div>
+<div id = "energy2"></div>
 <script type="text/javascript">
 function procesar(obj)
 {
 //alert(obj.energia.value);
 var MW = obj.energia.value;
-document.write("<p>La conversión a unidades equivalente es la siguiente</p>")
-document.write("<p>Sistema de unidades internacional</p>")
-document.write(MW*1000000 + " W" + "<br/>")
-document.write(MW*1000 + " kW" + "<br/>")
-document.write(MW + " MW" + "<br/>")
-document.write(MW/1000 + " GW" + "<br/>")
-document.write(MW/1000000 + " TW" + "<br/>")
-document.write("<p>Sistema de unidades inglés</p>")
-document.write(MW*1000000/756 + " hp" + "<br/>")
-document.write("<p>Energía equivalente por día (24 h)</p>")
-document.write("<p>Sistema de unidades internacional (SI)</p>")
-document.write(MW*1000000*24 + " Wh" + "<br/>")
-document.write(MW*1000*24 + " kWh" + "<br/>")
-document.write(MW*24 + " MWh" + "<br/>")
-document.write(MW/1000*24 + " GWh" + "<br/>")
-document.write(MW/1000000*24 + " TWh" + "<br/>")
-document.write("<p>Hidrocarburos necesario para producir la energía arriba indicada en una planta eléctrica termolectrica</p>")
-document.write(MW/4 + " MMPCD" + "<br/>")
-alert("Conversión realizada");
+document.getElementById("power").innerHTML=("<p>La conversión a unidades equivalente es la siguiente</p>"
++"<p>Sistema de unidades internacional</p>"
++MW*1000000 + " W" + "<br/>"
++MW*1000 + " kW" + "<br/>"
++MW + " MW" + "<br/>"
++MW/1000 + " GW" + "<br/>"
++MW/1000000 + " TW" + "<br/>"
++"<p>Sistema de unidades inglés</p>"
++MW*1000000/754 + " hp" + "<br/>")
+document.getElementById("energy").innerHTML=("<p>Energía equivalente por día (24 h)</p>"
++"<p>Sistema de unidades internacional (SI)</p>"
++MW*1000000*24 + " Wh" + "<br/>"
++MW*1000*24 + " kWh" + "<br/>"
++MW*24 + " MWh" + "<br/>"
++MW/1000*24 + " GWh" + "<br/>"
++MW/1000000*24 + " TWh" + "<br/>")
+document.getElementById("energy2").innerHTML=("<p>Hidrocarburos necesarios para producir la energía arriba indicada en una planta eléctrica termolectrica</p>"+ MW*0.25 + " MMPCD" + "<br/>"
+	+ MW*0.25*177.2/1000 + " MBD" + "<br/>")
+//alert("Conversión realizada");
 }
 </script>
 
