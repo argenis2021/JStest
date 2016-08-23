@@ -102,7 +102,7 @@
                 <p>Introdue la cantidad de potencia que desea convertir</p>
               </div>
               <form name="form1" id="form1" action="javascript:procesar(document.forms.form1)">
-               <input type="number" name="energia" id="energia" value="1"/>
+               <input type="number" name="energia" id="energia" value="18000" step="any"/>
               <input type="text" name="unidad" id="unidad" list="unidades" value="MW"/><br/>
               <datalist id="unidades">
               <option value="W">
@@ -120,27 +120,41 @@ var MW = obj.energia.value;
 //var HP = (MW*1000000/754).toFixed(2);
 document.getElementById("feature").getElementsByClassName("col-md-6 col-md-offset-6")[0].innerHTML=("<h2>POTENCIA EQUIVALENTE</h2>"
 +"<p>Sistema de unidades internacional</p>"
-+MW*1000000 + " W" + "<br/>"
-+MW*1000 + " kW" + "<br/>"
-+MW + " MW" + "<br/>"
-+MW/1000 + " GW" + "<br/>"
-+MW/1000000 + " TW" + "<br/>"
++addCommas(MW*1000000) + " W" + "<br/>"
++addCommas(MW*1000) + " kW" + "<br/>"
++addCommas(MW) + " MW" + "<br/>"
++addCommas(MW/1000) + " GW" + "<br/>"
++addCommas(MW/1000000) + " TW" + "<br/>"
 +"<p>Sistema de unidades inglés</p>"
-+(MW*1000000/754).toFixed(4) + " hp" + "<br/>")
++addCommas(MW*1000000/754) + " hp" + "<br/>")
 document.getElementById("service").innerHTML=("<h2>ENERGÍA EQUIVALENTE POR 24 h</h2>"
 +"<p>Sistema de unidades internacional (SI)</p>"
-+MW*1000000*24 + " Wh" + "<br/>"
-+MW*1000*24 + " kWh" + "<br/>"
-+MW*24 + " MWh" + "<br/>"
-+MW/1000*24 + " GWh" + "<br/>"
-+MW/1000000*24 + " TWh" + "<br/>")
++addCommas(MW*1000000*24) + " Wh" + "<br/>"
++addCommas(MW*1000*24) + " kWh" + "<br/>"
++addCommas(MW*24) + " MWh" + "<br/>"
++addCommas(MW/1000*24) + " GWh" + "<br/>"
++addCommas(MW/1000000*24) + " TWh" + "<br/>")
 document.getElementById("call-to-action").getElementsByClassName("block")[0].innerHTML=("<h2>HIDROCARBUROS</h2>"
 +"<p>Necesarios para producir la energía arriba indicada en una planta termoléctrica</p>"
-+ MW*0.25 + " MMPCD" + "<br/>"
-+ MW*0.25*177.2/1000 + " MBD" + "<br/>")
++addCommas(MW*0.25) + " MMPCD" + "<br/>"
++addCommas(MW*0.25*177.2/1000) + " MBD" + "<br/>")
 document.getElementById("feature").scrollIntoView();
 //alert("Conversión realizada");
 }
+</script>
+<script type="text/javascript">
+  function addCommas(nStr)
+{
+    nStr += '';
+    x = nStr.split('.');
+    x1 = x[0];
+    x2 = x.length > 1 ? ',' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+    }
+    return x1 + x2;
+    }
 </script>
             </div>
           </div><!-- .col-md-7 close -->
